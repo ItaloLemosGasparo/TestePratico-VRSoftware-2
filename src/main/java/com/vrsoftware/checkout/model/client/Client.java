@@ -1,12 +1,12 @@
 package com.vrsoftware.checkout.model.client;
 
 import com.vrsoftware.checkout.model.Sale.Sale;
-import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.util.List;
 

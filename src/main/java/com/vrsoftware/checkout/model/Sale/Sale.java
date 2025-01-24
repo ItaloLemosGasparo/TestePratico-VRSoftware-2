@@ -2,13 +2,13 @@ package com.vrsoftware.checkout.model.Sale;
 
 import com.vrsoftware.checkout.model.client.Client;
 import com.vrsoftware.checkout.model.product.Product;
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
