@@ -1,4 +1,4 @@
-package com.vrsoftware.checkout.model.Sale;
+package com.vrsoftware.checkout.model.sale;
 
 import com.vrsoftware.checkout.model.client.Client;
 import lombok.Getter;

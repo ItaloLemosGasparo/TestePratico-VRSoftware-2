@@ -1,6 +1,6 @@
 package com.vrsoftware.checkout.model.product;
 
-import com.vrsoftware.checkout.model.Sale.SaleItem;
+import com.vrsoftware.checkout.model.sale.SaleItem;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
