@@ -1,7 +1,6 @@
 package com.vrsoftware.checkout.model.Sale;
 
 import com.vrsoftware.checkout.model.client.Client;
-import com.vrsoftware.checkout.model.product.Product;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,9 +27,8 @@ public class Sale {
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
-    @OneToMany
-    @JoinColumn(name = "sale_id")
-    private List<Product> products;
+    @OneToMany(mappedBy = "sale", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SaleItem> saleItems;
 
     @NotNull(message = "A data da venda não pode ser nula")
     @Column(name = "sale_date", nullable = false)
@@ -40,4 +38,20 @@ public class Sale {
     @DecimalMin(value = "0.01", inclusive = true, message = "O valor total deve ser maior que zero")
     @Column(name = "total_amount", nullable = false)
     private BigDecimal totalAmount;
+
+    @PrePersist
+    @PreUpdate
+    public void prePersistOrUpdate() {
+        calculateSaleTotal();
+    }
+
+    public void calculateSaleTotal() {
+        BigDecimal total = BigDecimal.ZERO;
+
+        for (SaleItem item : saleItems)
+            total = total.add(item.getTotalAmount());
+
+        this.totalAmount = total;
+    }
+
 }

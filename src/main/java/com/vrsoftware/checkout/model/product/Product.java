@@ -1,6 +1,6 @@
 package com.vrsoftware.checkout.model.product;
 
-import com.vrsoftware.checkout.model.Sale.Sale;
+import com.vrsoftware.checkout.model.Sale.SaleItem;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -34,6 +34,7 @@ public class Product {
     @Column(name = "price", nullable = false)
     private BigDecimal price;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
-    private List<Sale> sales;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private List<SaleItem> saleItems;
+
 }
